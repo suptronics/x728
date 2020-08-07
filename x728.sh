@@ -1,8 +1,8 @@
 #X728 RTC setting up
 sudo sed -i '$ i rtc-ds1307' /etc/modules
 sudo sed -i '$ i echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device' /etc/rc.local
-sudo sed -i '$ i  hwclock -s' /etc/rc.local
-sudo sed -i '$ i  #Start power management on boot' /etc/rc.loca
+sudo sed -i '$ i hwclock -s' /etc/rc.local
+sudo sed -i '$ i #Start power management on boot' /etc/rc.local
 
 #x728 Powering on /reboot /full shutdown through hardware
 #!/bin/bash
@@ -151,9 +151,8 @@ GPIO.add_event_detect(6, GPIO.BOTH, callback=my_callback)
 print "1.Make sure your power adapter is connected"
 print "2.Disconnect and connect the power adapter to test"
 print "3.When power adapter disconnected, you will see: AC Power Loss or Power Adapter Failure"
-print "4.When power adapter disconnected, you will see: AC Power OK, Power Adapter OK"
+print "4.When power adapter reconnected, you will see: AC Power OK, Power Adapter OK"
 
 raw_input("Testing Started")
 ' > /home/pi/x728pld.py
 sudo chmod +x /home/pi/x728pld.py
-
